@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  `
 })
 export class AppComponent {
-  title = 'exo2-prenom1-prenom2';
+  get title(): "exo2-prenom1-prenom2" {
+    return this._title;
+  }
+
+  set title(value: "exo2-prenom1-prenom2") {
+    this._title = value;
+  }
+
+  private _title: 'exo2-prenom1-prenom2' = "exo2-prenom1-prenom2";
 }
