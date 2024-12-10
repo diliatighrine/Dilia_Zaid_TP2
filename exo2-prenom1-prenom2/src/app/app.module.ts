@@ -16,18 +16,19 @@ import { ContactService } from './services/contact.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    ListeComponent,
-    ContactComponent,
-    GestionComponent
+
+    HomeComponent
   ],
   imports: [
+    HeaderComponent,
+    FooterComponent,
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    ListeComponent,
+    ContactComponent,
+    GestionComponent
   ],
   providers: [ContactService],
   bootstrap: [AppComponent]
