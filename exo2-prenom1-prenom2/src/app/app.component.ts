@@ -20,7 +20,4 @@ export class AppComponent {
     return this._title;
   }
 
-  set title(value: string) {
-    this._title = value;
-  }
 }

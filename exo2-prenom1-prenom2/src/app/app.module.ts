@@ -17,7 +17,6 @@ import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
     HomeComponent
   ],
   imports: [
@@ -29,9 +28,10 @@ import { FooterComponent } from './footer/footer.component';
     ContactComponent,
     GestionComponent,
     HeaderComponent, // Add standalone component
-    FooterComponent  // Add standalone component
+    FooterComponent,
+    AppComponent,
+    // Add standalone component
   ],
   providers: [ContactService],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }
