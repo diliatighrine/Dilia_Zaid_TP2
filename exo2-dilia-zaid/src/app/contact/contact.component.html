@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center align-items-center" style="height:80vh;">
+  <form [formGroup]="contactForm" (ngSubmit)="envoyer()" class="w-50">
+    <div class="form-group">
+      <label>Prénom *</label>
+      <input type="text" formControlName="prenom" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label>Nom *</label>
+      <input type="text" formControlName="nom" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label>Âge</label>
+      <input type="number" formControlName="age" class="form-control"/>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" formControlName="hideEmail" (change)="onHideEmailChange()">
+      <label class="form-check-label">Hide Email</label>
+    </div>
+    <div class="form-group" *ngIf="!contactForm.get('hideEmail')?.value">
+      <label>Email *</label>
+      <input type="email" formControlName="email" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label>Commentaire *</label>
+      <textarea formControlName="commentaire" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">Envoyer</button>
+  </form>
+</div>
