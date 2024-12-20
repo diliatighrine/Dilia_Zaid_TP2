@@ -27,10 +27,9 @@ import { FooterComponent } from './footer/footer.component';
     ListeComponent,
     ContactComponent,
     GestionComponent,
-    HeaderComponent, // Add standalone component
+    HeaderComponent,
     FooterComponent,
     AppComponent,
-    // Add standalone component
   ],
   providers: [ContactService],
 })

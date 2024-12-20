@@ -17,7 +17,7 @@ export class ContactComponent {
     this.contactForm = this.fb.group({
       prenom: ['', Validators.required],
       nom: ['', Validators.required],
-      age: [''],
+      age: ['', [Validators.required, Validators.min(18), Validators.max(120)]],
       hideEmail: [false],
       email: ['', [Validators.required, Validators.email]],
       commentaire: ['', Validators.required]

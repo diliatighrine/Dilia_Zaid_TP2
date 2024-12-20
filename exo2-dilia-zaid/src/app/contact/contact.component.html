@@ -1,29 +1,57 @@
 <div class="d-flex justify-content-center align-items-center" style="height:80vh;">
   <form [formGroup]="contactForm" (ngSubmit)="envoyer()" class="w-50">
+    <!-- Prénom -->
     <div class="form-group">
-      <label>Prénom *</label>
-      <input type="text" formControlName="prenom" class="form-control"/>
+      <label for="prenom">Prénom *</label>
+      <input id="prenom" type="text" formControlName="prenom" class="form-control"/>
+      <div class="text-danger" *ngIf="contactForm.get('prenom')?.invalid && contactForm.get('prenom')?.touched">
+        Le prénom est requis.
+      </div>
     </div>
+
+    <!-- Nom -->
     <div class="form-group">
-      <label>Nom *</label>
-      <input type="text" formControlName="nom" class="form-control"/>
+      <label for="nom">Nom *</label>
+      <input id="nom" type="text" formControlName="nom" class="form-control"/>
+      <div class="text-danger" *ngIf="contactForm.get('nom')?.invalid && contactForm.get('nom')?.touched">
+        Le nom est requis.
+      </div>
     </div>
+
+    <!-- Âge -->
     <div class="form-group">
-      <label>Âge</label>
-      <input type="number" formControlName="age" class="form-control"/>
+      <label for="age">Âge</label>
+      <input id="age" type="number" formControlName="age" class="form-control"/>
+      <div class="text-danger" *ngIf="contactForm.get('age')?.invalid && contactForm.get('age')?.touched">
+        L'âge doit être un nombre entre 18 et 120.
+      </div>
     </div>
+
+    <!-- Hide Email Checkbox -->
     <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" formControlName="hideEmail" (change)="onHideEmailChange()">
-      <label class="form-check-label">Hide Email</label>
+      <input id="hideEmail" type="checkbox" class="form-check-input" formControlName="hideEmail" (change)="onHideEmailChange()">
+      <label for="hideEmail" class="form-check-label">Cacher l'email</label>
     </div>
+
+    <!-- Email -->
     <div class="form-group" *ngIf="!contactForm.get('hideEmail')?.value">
-      <label>Email *</label>
-      <input type="email" formControlName="email" class="form-control"/>
+      <label for="email">Email *</label>
+      <input id="email" type="email" formControlName="email" class="form-control"/>
+      <div class="text-danger" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+        L'email est requis et doit être valide.
+      </div>
     </div>
+
+    <!-- Commentaire -->
     <div class="form-group">
-      <label>Commentaire *</label>
-      <textarea formControlName="commentaire" class="form-control"></textarea>
+      <label for="commentaire">Commentaire *</label>
+      <textarea id="commentaire" formControlName="commentaire" class="form-control"></textarea>
+      <div class="text-danger" *ngIf="contactForm.get('commentaire')?.invalid && contactForm.get('commentaire')?.touched">
+        Le commentaire est requis.
+      </div>
     </div>
+
+    <!-- Bouton Envoyer -->
     <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">Envoyer</button>
   </form>
 </div>
